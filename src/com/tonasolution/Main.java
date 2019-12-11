@@ -8,20 +8,22 @@ public class Main {
         Employee jack = new Employee("jack", "ali", 1234);
         Employee kali = new Employee("kali", "maeckel", 12345);
         Employee mary = new Employee("Mary", "smith", 12345);
+        Employee kamal = new Employee("kamal", "loli", 12395);
 
-        SimpleHashTable simpleHashTable = new SimpleHashTable();
-        simpleHashTable.put("zouhaire", zouhaire);
-        simpleHashTable.put("jack", jack);
-        simpleHashTable.put("kali", kali);
-        simpleHashTable.put("mary", mary);
+        ChainedHashTable chainedHashTable = new ChainedHashTable();
+        chainedHashTable.put("zouhaire", zouhaire);
+        chainedHashTable.put("jack", jack);
+        chainedHashTable.put("kali", kali);
+        chainedHashTable.put("mary", mary);
+        chainedHashTable.put("mary", kamal);
 
-        simpleHashTable.print();
+        chainedHashTable.print();
 
-        System.out.println("Retrieve key  kali" + simpleHashTable.get("mary"));
+        System.out.println("Retrieve key  kali" + chainedHashTable.get("mary"));
 
         System.out.println("Deleting ---> ");
-        simpleHashTable.remove("mary");
-        simpleHashTable.remove("jack");
-        simpleHashTable.print();
+        chainedHashTable.remove("mary");
+        chainedHashTable.remove("jack");
+        chainedHashTable.print();
     }
 }

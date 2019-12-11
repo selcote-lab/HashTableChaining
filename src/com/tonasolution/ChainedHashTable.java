@@ -45,7 +45,7 @@ public class ChainedHashTable {
 
         while (iterator.hasNext()) {
             StoreEmployee storeEmployee = iterator.next();
-            
+
             if (storeEmployee.key.equals(key)) {
                 iterator.remove();
                 return storeEmployee.employee;
@@ -55,8 +55,30 @@ public class ChainedHashTable {
         return null;
     }
 
+    public void print(){
+
+        for(int i = 0; i < hashTable.length; i++) {
+
+            if(hashTable[i].isEmpty()) {
+                System.out.println("Position " + i + "is empty");
+                System.out.println("This linkedList is empty");
+            }
+            else {
+                ListIterator<StoreEmployee> iterator = hashTable[i].listIterator();
+                System.out.println("Position " + i + " --> ");
+
+                while (iterator.hasNext()) {
+                    System.out.println(iterator.next().employee);
+                    System.out.print("-->");
+                }
+
+                System.out.println("null");
+            }
+        }
+    }
+
     // == private methods ==
     private int hashKey(String key) {
-        return key.length() % hashtable.length;
+        return Math.abs(key.hashCode() % hashTable.length);
     }
 }
